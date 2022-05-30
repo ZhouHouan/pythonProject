@@ -1,0 +1,61 @@
+# 1.每个人的总和
+# 2.所有人的总和
+# 3.谁的总分数最高
+# 4谁的单个成绩最高
+import numpy
+school = [
+    [56,52,12,30], # 张三
+    [85,96,53], # 李四
+    [10,74,20,30,50], # 王五
+    [90,93,74,10] # 赵六
+]
+
+sum1 = 0
+sum2 = 0
+sum3 = 0
+sum4 = 0
+
+print("-----------------------------------")
+#每个人的总和
+for x in school:
+    if sum1 == 0:
+        sum1 = sum(school[0])
+        print("张三成绩总和:",sum1)
+    elif sum2 == 0:
+        sum2 = sum(school[1])
+        print("李四成绩总和:",sum2)
+    elif sum3 ==0:
+        sum3 = sum(school[2])
+        print("王五成绩总和:",sum3)
+    elif sum4 ==0:
+        sum4 = sum(school[3])
+        print("赵六成绩总和:",sum4)
+
+print("--------------------------------------------------")
+# 2.所有人的总和
+z = sum1+sum2+sum3+sum4
+print("所有人的总和：",z)
+
+#谁的分数最高
+listN = [sum1,sum2,sum3,sum4]
+max = 0
+for c in listN:
+    if c > max:
+        max = c
+print("总分数最高",max)
+
+#谁的单个成绩最高
+np = numpy
+size = len(school)
+index = 0
+sc1 = 0
+sc3 = 0
+while index < size:
+    sc2 = np.max(school[index])
+    if sc2 > sc1:
+        sc1 = sc2
+        sc3 = index
+    index = index+1
+    if index == size:
+        print("单个成绩：", sc1, "下标为", sc3, "成绩最大")
+print("----------------------------------------------------")
